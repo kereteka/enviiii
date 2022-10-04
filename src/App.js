@@ -1,24 +1,23 @@
-import logo from './logo.svg';
+import { Routes, Route } from 'react-router';
 import './App.css';
+import Create from './components/Create';
+import LandingPage from './components/LandingPage';
+import Event from './components/Event';
+
+import 'react-calendar/dist/Calendar.css';
+import { StateContext } from './components/StateContext';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StateContext>  
+    <Routes>
+      <Route path='/' element={<LandingPage />}></Route>
+      <Route path='/create' element={<Create />}></Route>
+      <Route path='/event' element={<Event />}></Route>
+    </Routes>
+    </StateContext>
+
   );
 }
 
